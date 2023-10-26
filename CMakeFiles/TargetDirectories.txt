@@ -1,0 +1,3 @@
+/home/carla/Desktop/T1/CMakeFiles/rebuild_cache.dir
+/home/carla/Desktop/T1/CMakeFiles/edit_cache.dir
+/home/carla/Desktop/T1/CMakeFiles/T11111.dir
