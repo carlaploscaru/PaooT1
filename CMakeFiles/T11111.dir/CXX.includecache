@@ -11,10 +11,16 @@ iostream
 -
 string
 -
+vector
+-
 
 /home/carla/Desktop/T1/src/main.cpp
 iostream
 -
 class.hpp
 /home/carla/Desktop/T1/src/class.hpp
+vector
+-
+cstring
+-
 

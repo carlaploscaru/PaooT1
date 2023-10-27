@@ -1,73 +1,118 @@
 #include <iostream>
 #include "class.hpp"
+#include <vector>
+#include <cstring>
 
 //using namespace std;
 
-Booking::Booking(int apartment_id, const std::string& owner_name)//the initialization part of a constructor occurs in the constructor's initializer list.
-    : apartment_id(apartment_id), owner_name(owner_name) {
+Booking::Booking(int h_id, const std::string& o_name,const char* hotel)
+    : hotel_id(h_id), owner_name(o_name) {
+    this->hotel = new char[strlen(hotel) + 1];
+    strcpy(this->hotel, hotel);
     std::cout << "created\n";
 }
 
 Booking::~Booking(){
     std::cout<<"distrus\n";
-    delete[] this->client;
+    delete[] hotel;
 }
 
-Booking::Booking(const Booking& a)
-    : apartment_id(a.apartment_id),owner_name(a.owner_name){
-    std::cout<<"copy constructor called"<<std::endl;
+Booking::Booking(const Booking& next)
+    : hotel_id(next.hotel_id),owner_name(next.owner_name){
+    std::cout<<"copy constructor apelat"<<std::endl;
 }
 
-void Booking::afisareInfo() const{
-    std::cout<<"apartment_id :"<< apartment_id<<"\n";
+void Booking::afisareInfoBooking() const{
+    std::cout<<"hotel_id :"<< hotel_id<<"\n";
     std::cout<<"owner_name :"<< owner_name<<"\n";
     std::cout<<"nr_apartments :"<< nr_apartments<<"\n";
 }
 
-Booking& Booking::operator=(const Booking& other) {
-    if (this != &other) { 
-        apartment_id = other.apartment_id;
-        owner_name = other.owner_name;
-        nr_apartments = other.nr_apartments;
-        nr_pers_per_ap = other.nr_pers_per_ap;
-        nr_days = other.nr_days;
+Booking& Booking::operator=(const Booking& next) { 
+    if (this != &next) { 
+        hotel_id = next.hotel_id;// se face copierea
+        owner_name = next.owner_name;
+        nr_apartments = next.nr_apartments;
+        nr_pers_per_ap = next.nr_pers_per_ap;
+        nr_days = next.nr_days;
     }
-    std::cout << "Copy assignment operator called" << std::endl;
-    return *this; // Return a reference to the modified object
+    std::cout << "assignment operator apelat" << std::endl;
+    return *this; // returneaza o referinta la obiectul modificat
 }
 
 
-//allocate memory on the heap using the new operator for single objects or arrays and deallocate it using the delete operator.
+
+
+
+
+
+
+
+Client::Client(int a_id, const Booking& book,const std::string & c_name)
+    : apartment_id(a_id), booking(book),client_name(c_name){
+}
+
+void Client::displayClientInfo() const {
+    std::cout << "apartment_id: " << apartment_id << std::endl;
+    std::cout << "client_name: " << client_name << std::endl;
+    std::cout << "Booking Info:" << std::endl;
+    booking.afisareInfoBooking(); // Call the Booking's display function
+}
+
+Client::~Client(){
+    std::cout<<"distrus\n";
+    delete[] client;
+}
+
+
+
+
+
 
 int main(){
-    std::string name="ion"; //daca nu am const in constructor
-    Booking owner1(24,name);//object is created as a local variable on the stack
+    //std::string name="ion"; 
+    Booking apartment1(24,"ion","name1");//obj creat ca var locala pe stack 
 
-    Booking* owner2 = new Booking(25, "ariel"); // Allocate a single Booking object on the heap
-    Booking* owner3 = new Booking[5]{
-    {1, "Alice"},
-    {2, "Bob"},
-    {3, "Charlie"},
-    {4, "David"},
-    {5, "Eve"}
-}; // Allocate an array of 5 Booking objects on the heap
+    Booking* apartment2 = new Booking(25, "ariel","name1"); 
+    Booking* apartment3 = new Booking[3]{
+    {1, "Alice","name1"},
+    {2, "Bob","name1"},
+    {3, "Charlie","name1"}
+    };
     
-    owner1.afisareInfo();
-    owner2->afisareInfo();
+    apartment1.afisareInfoBooking();
+    /*apartment2->afisareInfoBooking();
     for(int i = 0; i < 5; ++i){
-        owner3[i].afisareInfo();
-    }
-  
+        apartment3[i].afisareInfoBooking();
+    }*/
 
-    delete owner2;//Call the destructor explicitly and deallocate memory
-    delete[] owner3;
 
-    Booking owner15(24, "John");
-    Booking owner4(NULL,NULL);//pt copy constructor
-    owner4 = owner15;//Use the copy assignment operator to assign owner1 to owner4
-    owner4.afisareInfo();
+    Booking apartment23(253, "Alice","name1"); 
+    std::string client_name = "pop andrei";
+    Client client1(25, apartment23, client_name);
+    std::cout << "Client Info:" << std::endl;
+    client1.displayClientInfo();
+    
 
-    std::cout<<"Hello agica";
-    return 0;
+    delete apartment2;
+    delete[] apartment3;
+
+    Booking apartment15(24, "John","name1");
+    Booking* apartment4 = new Booking(0, "","");
+    *apartment4 = apartment15;
+    apartment4->afisareInfoBooking();
+   
+    delete apartment4;
+
+   Booking a(1, "aaaaa","name1");
+   Booking b(2, "bbbbbb","name1");
+   a.afisareInfoBooking();
+   b.afisareInfoBooking();
+   b = a;
+   Booking c=b;
+   c.afisareInfoBooking();
+
+
+return 0;
 }
 

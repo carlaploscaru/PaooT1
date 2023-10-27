@@ -1,28 +1,44 @@
-#ifndef BOOKING_HPP // Add include guards//are used to prevent a header file from being included multiple times in a translation unit (source file)
-#define BOOKING_HPP
-
 
 #include <iostream>
 #include <string>
-
-
+#include <vector>
 
 class Booking{
-   private: //by defsult e privst si dscs nu pun private
-        int apartment_id;
-        std::string owner_name;//std for string
+   private: 
+        int hotel_id;
+        std::string owner_name;
         int nr_apartments;
         int nr_pers_per_ap;
         int nr_days;
+        char* hotel;
+   
+    public:
+         Booking(); 
+         Booking(int hotel_id, const std::string & owner_name,const char* hotel);
+         ~Booking();
+         Booking(const Booking & next);
+         void afisareInfoBooking() const;
+         Booking& operator=(const Booking& next);
+         int getHotelId() const{ return hotel_id; };
+};
+
+
+class Client{
+private: 
+        int apartment_id;
+        std::string client_name;
+        std::string email;
+        std::string password;
+        Booking booking;
         char* client;
    
     public:
-         Booking(int apartment_id, const std::string & owner_name);//"const" ne arata ca parametrul "owner_name" e o referinta constnta la un obiect std::string, daca nu pun &=> transmit prin valore numele nu prin referinta
-         ~Booking();
-         Booking(const Booking & ceva);//& indica ca "ceva" e referinta la obiectul Booking 
+         Client(int apartment_id,const Booking& booking,const std::string & client_name);
+         ~Client();
          void afisareInfo() const;
-         Booking& operator=(const Booking& other);
-
+         void displayClientInfo() const;
+         int getHotelId() const { return booking.getHotelId(); }
+         int sumClienti(const std::vector<Client>& clienti, int hotel_id);
 };
 
-#endif
+
