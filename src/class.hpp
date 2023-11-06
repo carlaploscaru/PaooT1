@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 
+
 class Booking{
    private: 
         int hotel_id;
@@ -20,11 +21,21 @@ class Booking{
          void afisareInfoBooking() const;
          Booking& operator=(const Booking& next);
          int getHotelId() const{ return hotel_id; };
+         Booking(Booking&& other) noexcept;
+         
+         
 };
 
 
-class Client{
-private: 
+class InterfaceClient {
+public:
+    virtual int getHotelId() const= 0;//pure virtual function
+    virtual void displayClientInfo() const = 0;
+    virtual ~InterfaceClient() {} 
+};
+
+class Client: public InterfaceClient {
+     private: 
         int apartment_id;
         std::string client_name;
         std::string email;
@@ -34,11 +45,30 @@ private:
    
     public:
          Client(int apartment_id,const Booking& booking,const std::string & client_name);
-         ~Client();
-         void afisareInfo() const;
-         void displayClientInfo() const;
-         int getHotelId() const { return booking.getHotelId(); }
-         int sumClienti(const std::vector<Client>& clienti, int hotel_id);
+         Client(int apartment_id, Booking&& booking, std::string&& client_name);
+         //~Client();
+         void displayClientInfo()  const override;
+         int getHotelId() const override{ return booking.getHotelId(); }
+         int sumClienti(const std::vector<InterfaceClient*>& clienti, int hotel_id);
 };
+
+
+
+namespace Guest {
+    class GuestClient : public Client  {
+    public:
+        GuestClient(int apartment_id, const Booking& booking, const std::string& client_name);
+        void displayInfo();
+    };
+};
+
+namespace Tourists {
+    class TouristClient : public Client  {
+    public:
+        TouristClient(int apartment_id, const Booking& booking, const std::string& client_name);
+        void displayInfo();
+    };
+};
+
 
 
