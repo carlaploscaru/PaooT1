@@ -1,3 +1,13 @@
-/home/carla/Desktop/T1/CMakeFiles/rebuild_cache.dir
-/home/carla/Desktop/T1/CMakeFiles/edit_cache.dir
-/home/carla/Desktop/T1/CMakeFiles/T11111.dir
+/home/carla/Desktop/T2/CMakeFiles/rebuild_cache.dir
+/home/carla/Desktop/T2/CMakeFiles/edit_cache.dir
+/home/carla/Desktop/T2/src/CMakeFiles/rebuild_cache.dir
+/home/carla/Desktop/T2/src/CMakeFiles/edit_cache.dir
+/home/carla/Desktop/T2/src/1booking/CMakeFiles/rebuild_cache.dir
+/home/carla/Desktop/T2/src/1booking/CMakeFiles/edit_cache.dir
+/home/carla/Desktop/T2/src/1booking/CMakeFiles/T44booking.dir
+/home/carla/Desktop/T2/src/2template/CMakeFiles/rebuild_cache.dir
+/home/carla/Desktop/T2/src/2template/CMakeFiles/edit_cache.dir
+/home/carla/Desktop/T2/src/2template/CMakeFiles/T44template.dir
+/home/carla/Desktop/T2/src/3dir/CMakeFiles/rebuild_cache.dir
+/home/carla/Desktop/T2/src/3dir/CMakeFiles/edit_cache.dir
+/home/carla/Desktop/T2/src/3dir/CMakeFiles/D3.dir

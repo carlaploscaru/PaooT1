@@ -1,0 +1,2 @@
+/usr/bin/ar qc libT44template.a  CMakeFiles/T44template.dir/main2.cpp.o
+/usr/bin/ranlib libT44template.a

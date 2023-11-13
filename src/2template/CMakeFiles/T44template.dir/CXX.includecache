@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/carla/Desktop/T2/src/1booking/class.hpp
+iostream
+-
+string
+-
+vector
+-
+memory
+-
+
+/home/carla/Desktop/T2/src/2template/main2.cpp
+iostream
+-
+template.hpp
+/home/carla/Desktop/T2/src/2template/template.hpp
+
+/home/carla/Desktop/T2/src/2template/template.hpp
+../1booking/class.hpp
+/home/carla/Desktop/T2/src/1booking/class.hpp
+iostream
+-
+

@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/D3.dir/main3.cpp.o  -o D3 

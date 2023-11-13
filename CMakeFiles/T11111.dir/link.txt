@@ -1,1 +1,0 @@
-/usr/bin/c++    -rdynamic CMakeFiles/T11111.dir/src/main.cpp.o  -o build/T11111 

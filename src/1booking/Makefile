@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/carla/Desktop/T2/CMakeFiles /home/carla/Desktop/T2/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd /home/carla/Desktop/T2 && $(CMAKE_COMMAND) -E cmake_progress_start /home/carla/Desktop/T2/CMakeFiles /home/carla/Desktop/T2/src/1booking/CMakeFiles/progress.marks
+	cd /home/carla/Desktop/T2 && $(MAKE) -f CMakeFiles/Makefile2 src/1booking/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/carla/Desktop/T2/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /home/carla/Desktop/T2 && $(MAKE) -f CMakeFiles/Makefile2 src/1booking/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,57 +97,60 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/carla/Desktop/T2 && $(MAKE) -f CMakeFiles/Makefile2 src/1booking/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/carla/Desktop/T2 && $(MAKE) -f CMakeFiles/Makefile2 src/1booking/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/carla/Desktop/T2 && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named T44booking
+# Convenience name for target.
+src/1booking/CMakeFiles/T44booking.dir/rule:
+	cd /home/carla/Desktop/T2 && $(MAKE) -f CMakeFiles/Makefile2 src/1booking/CMakeFiles/T44booking.dir/rule
+.PHONY : src/1booking/CMakeFiles/T44booking.dir/rule
 
-# Build rule for target.
-T44booking: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 T44booking
+# Convenience name for target.
+T44booking: src/1booking/CMakeFiles/T44booking.dir/rule
+
 .PHONY : T44booking
 
 # fast build rule for target.
 T44booking/fast:
-	$(MAKE) -f src/1booking/CMakeFiles/T44booking.dir/build.make src/1booking/CMakeFiles/T44booking.dir/build
+	cd /home/carla/Desktop/T2 && $(MAKE) -f src/1booking/CMakeFiles/T44booking.dir/build.make src/1booking/CMakeFiles/T44booking.dir/build
 .PHONY : T44booking/fast
 
-#=============================================================================
-# Target rules for targets named T44template
+main.o: main.cpp.o
 
-# Build rule for target.
-T44template: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 T44template
-.PHONY : T44template
+.PHONY : main.o
 
-# fast build rule for target.
-T44template/fast:
-	$(MAKE) -f src/2template/CMakeFiles/T44template.dir/build.make src/2template/CMakeFiles/T44template.dir/build
-.PHONY : T44template/fast
+# target to build an object file
+main.cpp.o:
+	cd /home/carla/Desktop/T2 && $(MAKE) -f src/1booking/CMakeFiles/T44booking.dir/build.make src/1booking/CMakeFiles/T44booking.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-#=============================================================================
-# Target rules for targets named D3
+main.i: main.cpp.i
 
-# Build rule for target.
-D3: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 D3
-.PHONY : D3
+.PHONY : main.i
 
-# fast build rule for target.
-D3/fast:
-	$(MAKE) -f src/3dir/CMakeFiles/D3.dir/build.make src/3dir/CMakeFiles/D3.dir/build
-.PHONY : D3/fast
+# target to preprocess a source file
+main.cpp.i:
+	cd /home/carla/Desktop/T2 && $(MAKE) -f src/1booking/CMakeFiles/T44booking.dir/build.make src/1booking/CMakeFiles/T44booking.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	cd /home/carla/Desktop/T2 && $(MAKE) -f src/1booking/CMakeFiles/T44booking.dir/build.make src/1booking/CMakeFiles/T44booking.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -158,8 +161,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... T44booking"
-	@echo "... T44template"
-	@echo "... D3"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 
@@ -171,6 +175,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/carla/Desktop/T2 && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
