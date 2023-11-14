@@ -6,14 +6,7 @@ cmake_minimum_required(VERSION 3.0)
 project(2template)
 
 set(SOURCES template.hpp main2.cpp)
-# add_library(2template_library
-#     template.hpp
-# )
 
-# Specify the include directories for this library
-# target_include_directories(2template_library
-#     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
-# )
 add_library(T44template
 ${SOURCES}
 )

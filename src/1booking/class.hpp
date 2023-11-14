@@ -1,7 +1,7 @@
 
 #include <iostream>
 #include <string>
-#include <vector>//?????????????
+#include <vector>
 #include <memory>
 
 
@@ -10,7 +10,7 @@ class Booking{
         int hotel_id;
         std::string owner_name;
         int nr_apartments;
-        int nr_pers_per_ap;
+        int price;
         int nr_days;
         std::unique_ptr<char[]> hotel;//char* hotel;
 
@@ -18,14 +18,16 @@ class Booking{
    
     public:
          Booking(); 
-         Booking(int hotel_id, const std::string & owner_name,const char* hotel);
+         Booking(int hotel_id, const std::string & owner_name,const char* hotel,int price);
+         Booking(int h_id, const char* o_name, const char* hotel, int pri);
          ~Booking();
-         Booking(const Booking & next);//????????????????
+         Booking(const Booking & next);
          void afisareInfoBooking() const;
-         Booking& operator=(const Booking& next);//??????????????
+         Booking& operator=(const Booking& next);
          int getHotelId() const{ return hotel_id; };
          Booking(Booking&& other) noexcept;
-      
+         virtual float getPrice() const { return price; };
+         
 };
 
 
@@ -33,7 +35,8 @@ class InterfaceClient {
 public:
     virtual int getHotelId() const= 0;
     virtual void displayClientInfo() const = 0;
-    virtual ~InterfaceClient() {} //??????????????????????????
+    virtual ~InterfaceClient() {}; 
+    virtual float getPrice() const = 0;
 };
 
 class Client: public InterfaceClient {
@@ -52,6 +55,7 @@ class Client: public InterfaceClient {
          void displayClientInfo()  const override;
          int getHotelId() const override{ return booking.getHotelId(); }
          int sumClienti(const std::vector<InterfaceClient*>& clienti, int hotel_id);
+         float getPrice() const override { return booking.getPrice(); }
 };
 
 
@@ -72,5 +76,5 @@ namespace Tourists {
     };
 };
 
-
-
+template <typename T>
+float TotalPrice(const std::vector<T*>& items);
